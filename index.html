@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShedAI — AI-Powered Weight Loss App</title>
+<meta name="description" content="ShedAI uses AI to help you track meals, monitor calories, and reach your goal weight. Simple, powerful, and built for real life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #2E7D32;
+    --green-light: #4CAF50;
+    --green-pale: #F1F8E9;
+    --green-mid: #C8E6C9;
+    --yellow: #FFD600;
+    --dark: #1a1a1a;
+    --grey: #6B7280;
+    --white: #FFFFFF;
+    --cream: #FAFAF5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 38px; height: 38px;
+    background: var(--green-pale);
+    border-radius: 10px;
+    border: 1.5px solid var(--green-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .nav-brand {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px; font-weight: 800;
+  }
+  .nav-brand span:first-child { color: var(--dark); }
+  .nav-brand span:last-child { color: var(--green-light); }
+
+  .nav-cta {
+    background: var(--green-light);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--green); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    background: linear-gradient(160deg, var(--cream) 0%, var(--green-pale) 60%, #E8F5E9 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(76,175,80,0.08) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: white;
+    border: 1px solid var(--green-mid);
+    color: var(--green);
+    font-size: 13px; font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    font-family: 'Sora', sans-serif;
+  }
+
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+
+  .hero h1 .highlight {
+    color: var(--green-light);
+    position: relative;
+  }
+
+  .hero p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--grey);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 64px;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--dark);
+    color: white;
+    padding: 16px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white;
+    color: var(--dark);
+    padding: 16px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1.5px solid #e0e0e0;
+    transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--green-light); }
+
+  /* Phone mockup */
+  .phone-mockup {
+    width: 260px;
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 16px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1);
+    position: relative;
+  }
+
+  .phone-screen {
+    background: #f5f5f5;
+    border-radius: 28px;
+    overflow: hidden;
+    padding: 20px 16px;
+  }
+
+  .phone-header {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .phone-logo {
+    width: 32px; height: 32px;
+    background: var(--green-pale);
+    border-radius: 8px;
+    border: 1px solid var(--green-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+
+  .phone-app-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px; font-weight: 800;
+  }
+  .phone-app-name .s { color: #1a1a1a; }
+  .phone-app-name .ai { color: var(--green-light); }
+
+  .phone-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .phone-card-label {
+    font-size: 11px; font-weight: 700;
+    color: #333; margin-bottom: 8px;
+  }
+
+  .phone-progress {
+    height: 8px;
+    background: #e8e8e8;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+
+  .phone-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .phone-stats {
+    display: flex; justify-content: space-between;
+    font-size: 10px; color: #888;
+  }
+
+  .phone-mic {
+    width: 60px; height: 60px;
+    background: var(--green-light);
+    border-radius: 30px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 8px auto 0;
+    box-shadow: 0 4px 12px rgba(76,175,80,0.4);
+  }
+
+  /* ── STATS ── */
+  .stats {
+    background: var(--green);
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Sora', sans-serif;
+    font-size: 48px; font-weight: 800;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--grey);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid #eee;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+  .feature-icon {
+    width: 52px; height: 52px;
+    background: white;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .feature-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 17px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how {
+    background: var(--green-pale);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .step {
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .step-number {
+    width: 52px; height: 52px;
+    background: var(--green-light);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 20px; font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .step-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 16px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 100px 40px;
+    text-align: center;
+    background: var(--dark);
+  }
+
+  .cta-section h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+  }
+
+  .cta-section .btn-primary {
+    background: var(--green-light);
+    font-size: 16px;
+    padding: 18px 36px;
+  }
+  .cta-section .btn-primary:hover { background: var(--green); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-brand {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px; font-weight: 800;
+    color: white;
+  }
+  .footer-brand span { color: var(--green-light); }
+
+  .footer-links {
+    display: flex; gap: 24px;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: white; }
+
+  .footer-copy {
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 16px;
+  }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer-banner {
+    background: #FFF8E1;
+    border-top: 2px solid #FFD600;
+    padding: 12px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #795548;
+    line-height: 1.5;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .stats { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px; }
+    .features { padding: 60px 20px; }
+    .how { padding: 60px 20px; }
+    .cta-section { padding: 60px 20px; }
+    footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">🏃</div>
+    <div class="nav-brand">
+      <span>Shed</span><span>AI</span>
+    </div>
+  </a>
+  <a href="https://apps.apple.com/app/shedai/id6762681528" class="nav-cta" target="_blank">
+    Download Free →
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✨ Powered by Claude AI</div>
+
+  <h1>
+    Shed the pounds.<br>
+    <span class="highlight">Powered by AI.</span>
+  </h1>
+
+  <p>
+    Log meals by voice, track calories and protein, monitor your weight loss journey — all powered by AI that understands real food, including Indian cuisine.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="https://apps.apple.com/app/shedai/id6762681528" class="btn-primary" target="_blank">
+      🍎 Download on App Store
+    </a>
+    <a href="#features" class="btn-secondary">
+      See how it works ↓
+    </a>
+  </div>
+
+  <!-- Phone mockup -->
+  <div class="phone-mockup">
+    <div class="phone-screen">
+      <div class="phone-header">
+        <div class="phone-logo">🏃</div>
+        <div class="phone-app-name">
+          <span class="s">Shed</span><span class="ai">AI</span>
+        </div>
+      </div>
+
+      <div class="phone-card">
+        <div class="phone-card-label">Calories</div>
+        <div class="phone-progress">
+          <div class="phone-progress-fill" style="width:65%;background:#4CAF50;"></div>
+        </div>
+        <div class="phone-stats"><span>1,365 / 2,100 cal</span><span>735 remaining</span></div>
+      </div>
+
+      <div class="phone-card">
+        <div class="phone-card-label">Protein</div>
+        <div class="phone-progress">
+          <div class="phone-progress-fill" style="width:80%;background:#FF9800;"></div>
+        </div>
+        <div class="phone-stats"><span>104g / 130g</span><span>26g remaining</span></div>
+      </div>
+
+      <div class="phone-card">
+        <div class="phone-card-label" style="color:#888;font-size:10px;">Today's Meals</div>
+        <div style="font-size:11px;color:#444;margin-bottom:4px;">🍳 2 eggs + 2 rotis + chai</div>
+        <div style="font-size:10px;color:#888;">450 cal • 22g protein</div>
+        <div style="border-top:1px solid #f0f0f0;margin:6px 0;"></div>
+        <div style="font-size:11px;color:#444;margin-bottom:4px;">🥗 Dal + rice + sabzi</div>
+        <div style="font-size:10px;color:#888;">560 cal • 28g protein</div>
+      </div>
+
+      <div class="phone-mic">🎤</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div>
+    <div class="stat-number">AI</div>
+    <div class="stat-label">Powered nutrition analysis</div>
+  </div>
+  <div>
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Free to download</div>
+  </div>
+  <div>
+    <div class="stat-number">🇮🇳</div>
+    <div class="stat-label">Understands Indian food</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-label">Features</div>
+  <h2 class="section-title">Everything you need to lose weight</h2>
+  <p class="section-sub">No complicated setup. No manual food searches. Just describe what you ate and ShedAI does the rest.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🎤</div>
+      <div class="feature-title">Voice Meal Logging</div>
+      <div class="feature-desc">Just say what you ate — "2 eggs, dal, 2 rotis and chai" — and AI instantly extracts calories, protein, carbs and fats.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <div class="feature-title">AI Nutrition Analysis</div>
+      <div class="feature-desc">Powered by Claude AI, ShedAI understands real food including Indian dishes, restaurant meals, and home cooking.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚖️</div>
+      <div class="feature-title">Weight Tracking</div>
+      <div class="feature-desc">Log your weight daily or weekly and watch your progress on a beautiful trend chart that keeps you motivated.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-title">Personalised Goals</div>
+      <div class="feature-desc">Enter your height, weight, and goal weight. AI calculates your ideal daily calories and protein based on proven nutritional science.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Nutrition Charts</div>
+      <div class="feature-desc">View daily, weekly, and monthly trends for calories and protein. See exactly which foods are contributing most to your intake.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💡</div>
+      <div class="feature-title">Meal Suggestions</div>
+      <div class="feature-desc">Running low on protein? Ask ShedAI for a meal suggestion that fits your remaining calories and dietary preferences.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-label" style="text-align:center;">How it works</div>
+  <h2 class="section-title" style="text-align:center;margin-bottom:12px;">Three steps to success</h2>
+  <p class="section-sub" style="margin:0 auto 60px;text-align:center;">ShedAI is designed to be the simplest diet tracker you've ever used.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-title">Set your goals</div>
+      <div class="step-desc">Enter your height, weight, and goal weight. Get personalised calorie and protein targets in seconds.</div>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-title">Log meals by voice</div>
+      <div class="step-desc">Tap the mic and describe what you ate. AI handles all the nutrition maths instantly.</div>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-title">Watch the progress</div>
+      <div class="step-desc">Track your weight loss trend and daily nutrition. Stay on track, one meal at a time.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer-banner">
+  ⚕️ ShedAI provides estimated nutritional information based on USDA Dietary Guidelines and the Mifflin-St Jeor BMR equation. This app is not intended as medical advice. Consult a healthcare provider before making significant dietary changes. <a href="/privacy" style="color:#795548;font-weight:600;">Privacy Policy</a>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Start shedding today.</h2>
+  <p>Free to download. No subscription required to get started.</p>
+  <a href="https://apps.apple.com/app/shedai/id6762681528" class="btn-primary" target="_blank">
+    🍎 Download on the App Store
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Shed<span>AI</span></div>
+  <div class="footer-links">
+    <a href="/#features">Features</a>
+    <a href="/#how">How it works</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="mailto:support@getshedai.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 ShedAI. All rights reserved. Made with ❤️ for people who want to live healthier.</div>
+</footer>
+
+</body>
+</html>
