@@ -15,7 +15,6 @@
     --green-light: #4CAF50;
     --green-pale: #F1F8E9;
     --green-mid: #C8E6C9;
-    --yellow: #FFD600;
     --dark: #1a1a1a;
     --grey: #6B7280;
     --white: #FFFFFF;
@@ -23,65 +22,27 @@
   }
 
   html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
+  /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 16px 40px;
     background: rgba(255,255,255,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0,0,0,0.06);
   }
-
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none;
-  }
-
-  .nav-logo-icon {
-    height: 42px;
-    width: auto;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .nav-logo-icon img {
-    height: 42px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .nav-brand {
-    font-family: 'Sora', sans-serif;
-    font-size: 20px; font-weight: 800;
-  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon { height: 42px; width: auto; border-radius: 8px; overflow: hidden; display: flex; align-items: center; }
+  .nav-logo-icon img { height: 42px; width: auto; object-fit: contain; }
+  .nav-brand { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; }
   .nav-brand span:first-child { color: var(--dark); }
   .nav-brand span:last-child { color: var(--green-light); }
-
-  .nav-cta {
-    background: var(--green-light);
-    color: white;
-    padding: 10px 22px;
-    border-radius: 24px;
-    text-decoration: none;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    transition: background 0.2s;
-  }
+  .nav-cta { background: var(--green-light); color: white; padding: 10px 22px; border-radius: 24px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; transition: background 0.2s; }
   .nav-cta:hover { background: var(--green); }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column;
@@ -89,409 +50,109 @@
     text-align: center;
     padding: 120px 24px 80px;
     background: linear-gradient(160deg, var(--cream) 0%, var(--green-pale) 60%, #E8F5E9 100%);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
-
   .hero::before {
-    content: '';
-    position: absolute;
+    content: ''; position: absolute;
     width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(76,175,80,0.08) 0%, transparent 70%);
-    top: -100px; right: -100px;
-    pointer-events: none;
+    top: -100px; right: -100px; pointer-events: none;
   }
+  .hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(40px, 7vw, 80px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 24px; max-width: 800px; }
+  .hero h1 .highlight { color: var(--green-light); }
+  .hero p { font-size: clamp(16px, 2.5vw, 20px); color: var(--grey); max-width: 540px; line-height: 1.7; margin-bottom: 40px; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 64px; }
 
-  .hero h1 {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(40px, 7vw, 80px);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -2px;
-    margin-bottom: 24px;
-    max-width: 800px;
-  }
-
-  .hero h1 .highlight {
-    color: var(--green-light);
-    position: relative;
-  }
-
-  .hero p {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: var(--grey);
-    max-width: 540px;
-    line-height: 1.7;
-    margin-bottom: 40px;
-  }
-
-  .hero-buttons {
-    display: flex; gap: 14px; flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 64px;
-  }
-
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--dark);
-    color: white;
-    padding: 16px 28px;
-    border-radius: 14px;
-    text-decoration: none;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--dark); color: white; padding: 16px 28px; border-radius: 14px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
-
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: white;
-    color: var(--dark);
-    padding: 16px 28px;
-    border-radius: 14px;
-    text-decoration: none;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    border: 1.5px solid #e0e0e0;
-    transition: border-color 0.2s;
-  }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--dark); padding: 16px 28px; border-radius: 14px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 15px; border: 1.5px solid #e0e0e0; transition: border-color 0.2s; }
   .btn-secondary:hover { border-color: var(--green-light); }
 
-  /* Phone mockup */
-  .phone-mockup {
-    width: 260px;
-    background: #1a1a1a;
-    border-radius: 40px;
-    padding: 16px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1);
-    position: relative;
+  /* SCREENSHOTS */
+  .screenshots-row {
+    display: flex; gap: 20px; justify-content: center;
+    align-items: flex-end; flex-wrap: wrap;
   }
+  .screenshot-frame { position: relative; transition: transform 0.3s; }
+  .screenshot-frame:hover { transform: translateY(-8px); }
+  .screenshot-frame img { border-radius: 32px; box-shadow: 0 32px 64px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.06); display: block; }
+  .screenshot-frame.large img { height: 480px; width: auto; }
+  .screenshot-frame.small img { height: 400px; width: auto; }
+  .screenshot-label { text-align: center; margin-top: 12px; font-size: 12px; color: var(--grey); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
 
-  .phone-screen {
-    background: #f5f5f5;
-    border-radius: 28px;
-    overflow: hidden;
-    padding: 20px 16px;
-  }
+  /* STATS */
+  .stats { background: var(--green); padding: 60px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+  .stat-number { font-family: 'Sora', sans-serif; font-size: 48px; font-weight: 800; color: white; margin-bottom: 4px; }
+  .stat-label { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 500; }
 
-  .phone-header {
-    display: flex; align-items: center; gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  .phone-logo {
-    height: 32px;
-    width: auto;
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .phone-logo img {
-    height: 32px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .phone-app-name {
-    font-family: 'Sora', sans-serif;
-    font-size: 14px; font-weight: 800;
-  }
-  .phone-app-name .s { color: #1a1a1a; }
-  .phone-app-name .ai { color: var(--green-light); }
-
-  .phone-card {
-    background: white;
-    border-radius: 12px;
-    padding: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-
-  .phone-card-label {
-    font-size: 11px; font-weight: 700;
-    color: #333; margin-bottom: 8px;
-  }
-
-  .phone-progress {
-    height: 8px;
-    background: #e8e8e8;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 4px;
-  }
-
-  .phone-progress-fill {
-    height: 100%;
-    border-radius: 4px;
-  }
-
-  .phone-stats {
-    display: flex; justify-content: space-between;
-    font-size: 10px; color: #888;
-  }
-
-  .phone-mic {
-    width: 60px; height: 60px;
-    background: var(--green-light);
-    border-radius: 30px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
-    margin: 8px auto 0;
-    box-shadow: 0 4px 12px rgba(76,175,80,0.4);
-  }
-
-  /* ── STATS ── */
-  .stats {
-    background: var(--green);
-    padding: 60px 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    text-align: center;
-  }
-
-  .stat-number {
-    font-family: 'Sora', sans-serif;
-    font-size: 48px; font-weight: 800;
-    color: white;
-    margin-bottom: 4px;
-  }
-
-  .stat-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    font-weight: 500;
-  }
-
-  /* ── FEATURES ── */
-  .features {
-    padding: 100px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-family: 'Sora', sans-serif;
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--green-light);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .section-sub {
-    font-size: 17px;
-    color: var(--grey);
-    max-width: 500px;
-    line-height: 1.7;
-    margin-bottom: 60px;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
-
-  .feature-card {
-    background: var(--cream);
-    border-radius: 20px;
-    padding: 28px;
-    border: 1px solid #eee;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+  /* FEATURES */
+  .features { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-light); margin-bottom: 12px; }
+  .section-title { font-family: 'Sora', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; line-height: 1.2; }
+  .section-sub { font-size: 17px; color: var(--grey); max-width: 500px; line-height: 1.7; margin-bottom: 60px; }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .feature-card { background: var(--cream); border-radius: 20px; padding: 28px; border: 1px solid #eee; transition: transform 0.2s, box-shadow 0.2s; }
   .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .feature-icon { width: 52px; height: 52px; background: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .feature-title { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .feature-desc { font-size: 14px; color: var(--grey); line-height: 1.6; }
 
-  .feature-icon {
-    width: 52px; height: 52px;
-    background: white;
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
+  /* SCREENSHOTS SECTION */
+  .app-screenshots { padding: 100px 40px; background: var(--cream); text-align: center; }
+  .app-screenshots .section-title { margin-bottom: 12px; }
+  .app-screenshots .section-sub { margin: 0 auto 60px; }
+  .screenshots-showcase { display: flex; gap: 24px; justify-content: center; align-items: flex-end; flex-wrap: wrap; }
+  .showcase-item { display: flex; flex-direction: column; align-items: center; }
+  .showcase-item img { border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05); display: block; transition: transform 0.3s; }
+  .showcase-item img:hover { transform: translateY(-8px) scale(1.02); }
+  .showcase-item.featured img { height: 520px; width: auto; }
+  .showcase-item.side img { height: 440px; width: auto; }
+  .showcase-caption { margin-top: 16px; font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; }
 
-  .feature-title {
-    font-family: 'Sora', sans-serif;
-    font-size: 17px; font-weight: 700;
-    margin-bottom: 8px;
-  }
+  /* HOW */
+  .how { background: var(--green-pale); padding: 100px 40px; text-align: center; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto; }
+  .step { display: flex; flex-direction: column; align-items: center; }
+  .step-number { width: 52px; height: 52px; background: var(--green-light); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 16px; }
+  .step-title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .step-desc { font-size: 14px; color: var(--grey); line-height: 1.6; }
 
-  .feature-desc {
-    font-size: 14px;
-    color: var(--grey);
-    line-height: 1.6;
-  }
-
-  /* ── HOW IT WORKS ── */
-  .how {
-    background: var(--green-pale);
-    padding: 100px 40px;
-    text-align: center;
-  }
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 32px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .step {
-    display: flex; flex-direction: column; align-items: center;
-  }
-
-  .step-number {
-    width: 52px; height: 52px;
-    background: var(--green-light);
-    color: white;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Sora', sans-serif;
-    font-size: 20px; font-weight: 800;
-    margin-bottom: 16px;
-  }
-
-  .step-title {
-    font-family: 'Sora', sans-serif;
-    font-size: 16px; font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .step-desc {
-    font-size: 14px;
-    color: var(--grey);
-    line-height: 1.6;
-  }
-
-  /* ── CTA ── */
-  .cta-section {
-    padding: 100px 40px;
-    text-align: center;
-    background: var(--dark);
-  }
-
-  .cta-section h2 {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(28px, 5vw, 52px);
-    font-weight: 800;
-    color: white;
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-  }
-
-  .cta-section p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 40px;
-  }
-
-  .cta-section .btn-primary {
-    background: var(--green-light);
-    font-size: 16px;
-    padding: 18px 36px;
-  }
+  /* CTA */
+  .cta-section { padding: 100px 40px; text-align: center; background: var(--dark); }
+  .cta-section h2 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 5vw, 52px); font-weight: 800; color: white; letter-spacing: -1px; margin-bottom: 16px; }
+  .cta-section p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+  .cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .cta-section .btn-primary { background: var(--green-light); font-size: 16px; padding: 18px 36px; }
   .cta-section .btn-primary:hover { background: var(--green); }
 
-  .cta-buttons {
-    display: flex; gap: 16px; flex-wrap: wrap;
-    justify-content: center;
-  }
+  /* DISCLAIMER */
+  .disclaimer-banner { background: #FFF8E1; border-top: 2px solid #FFD600; padding: 12px 40px; text-align: center; font-size: 12px; color: #795548; line-height: 1.5; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #111;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .footer-brand {
-    display: flex; align-items: center; gap: 10px;
-  }
-
-  .footer-logo-img {
-    height: 36px;
-    width: auto;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .footer-logo-img img {
-    height: 36px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .footer-brand-name {
-    font-family: 'Sora', sans-serif;
-    font-size: 18px; font-weight: 800;
-    color: white;
-  }
+  /* FOOTER */
+  footer { background: #111; padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-brand { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-img { height: 36px; width: auto; border-radius: 6px; overflow: hidden; }
+  .footer-logo-img img { height: 36px; width: auto; object-fit: contain; }
+  .footer-brand-name { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 800; color: white; }
   .footer-brand-name span { color: var(--green-light); }
-
-  .footer-links {
-    display: flex; gap: 24px;
-  }
-
-  .footer-links a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.2s; }
   .footer-links a:hover { color: white; }
+  .footer-copy { color: rgba(255,255,255,0.3); font-size: 12px; width: 100%; text-align: center; margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; }
 
-  .footer-copy {
-    color: rgba(255,255,255,0.3);
-    font-size: 12px;
-    width: 100%;
-    text-align: center;
-    margin-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 16px;
-  }
-
-  /* ── DISCLAIMER ── */
-  .disclaimer-banner {
-    background: #FFF8E1;
-    border-top: 2px solid #FFD600;
-    padding: 12px 40px;
-    text-align: center;
-    font-size: 12px;
-    color: #795548;
-    line-height: 1.5;
-  }
-
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
     .stats { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px; }
     .features { padding: 60px 20px; }
+    .app-screenshots { padding: 60px 20px; }
     .how { padding: 60px 20px; }
     .cta-section { padding: 60px 20px; }
     footer { padding: 24px 20px; flex-direction: column; text-align: center; }
     .footer-links { justify-content: center; }
     .footer-brand { justify-content: center; }
+    .showcase-item.featured img { height: 360px; }
+    .showcase-item.side img { height: 300px; }
   }
 </style>
 </head>
@@ -530,49 +191,24 @@
     <a href="#" class="btn-primary" style="background:#555;cursor:default;" title="Coming soon">
       🤖 Google Play — Coming Soon
     </a>
-    <a href="#features" class="btn-secondary">
-      See how it works ↓
+    <a href="#screenshots" class="btn-secondary">
+      See the app ↓
     </a>
   </div>
 
-  <!-- Phone mockup -->
-  <div class="phone-mockup">
-    <div class="phone-screen">
-      <div class="phone-header">
-        <div class="phone-logo">
-          <img src="shedaiapplogo.png" alt="ShedAI">
-        </div>
-        <div class="phone-app-name">
-          <span class="s">Shed</span><span class="ai">AI</span>
-        </div>
-      </div>
-
-      <div class="phone-card">
-        <div class="phone-card-label">Calories</div>
-        <div class="phone-progress">
-          <div class="phone-progress-fill" style="width:65%;background:#4CAF50;"></div>
-        </div>
-        <div class="phone-stats"><span>1,365 / 2,100 cal</span><span>735 remaining</span></div>
-      </div>
-
-      <div class="phone-card">
-        <div class="phone-card-label">Protein</div>
-        <div class="phone-progress">
-          <div class="phone-progress-fill" style="width:80%;background:#FF9800;"></div>
-        </div>
-        <div class="phone-stats"><span>104g / 130g</span><span>26g remaining</span></div>
-      </div>
-
-      <div class="phone-card">
-        <div class="phone-card-label" style="color:#888;font-size:10px;">Today's Meals</div>
-        <div style="font-size:11px;color:#444;margin-bottom:4px;">🍳 2 eggs + 2 rotis + chai</div>
-        <div style="font-size:10px;color:#888;">450 cal • 22g protein</div>
-        <div style="border-top:1px solid #f0f0f0;margin:6px 0;"></div>
-        <div style="font-size:11px;color:#444;margin-bottom:4px;">🥗 Dal + rice + sabzi</div>
-        <div style="font-size:10px;color:#888;">560 cal • 28g protein</div>
-      </div>
-
-      <div class="phone-mic">🎤</div>
+  <!-- Real app screenshots in hero -->
+  <div class="screenshots-row">
+    <div class="screenshot-frame small">
+      <img src="screenshot-charts.png" alt="Nutrition Trends">
+      <div class="screenshot-label">Nutrition Trends</div>
+    </div>
+    <div class="screenshot-frame large">
+      <img src="screenshot-home.png" alt="Home Screen">
+      <div class="screenshot-label">Daily Tracking</div>
+    </div>
+    <div class="screenshot-frame small">
+      <img src="screenshot-weight.png" alt="Weight Tracker">
+      <div class="screenshot-label">Weight Tracker</div>
     </div>
   </div>
 </section>
@@ -629,6 +265,28 @@
       <div class="feature-icon">💡</div>
       <div class="feature-title">Meal Suggestions</div>
       <div class="feature-desc">Running low on protein? Ask ShedAI for a meal suggestion that fits your remaining calories and dietary preferences.</div>
+    </div>
+  </div>
+</section>
+
+<!-- APP SCREENSHOTS SECTION -->
+<section class="app-screenshots" id="screenshots">
+  <div class="section-label" style="text-align:center;">The App</div>
+  <h2 class="section-title">Beautiful, simple, powerful</h2>
+  <p class="section-sub" style="margin: 0 auto 60px;">Everything designed to keep you on track without getting in the way.</p>
+
+  <div class="screenshots-showcase">
+    <div class="showcase-item side">
+      <img src="screenshot-charts.png" alt="Nutrition Trends Charts">
+      <div class="showcase-caption">📊 Nutrition Trends</div>
+    </div>
+    <div class="showcase-item featured">
+      <img src="screenshot-home.png" alt="Home Screen - Daily Tracking">
+      <div class="showcase-caption">🏠 Daily Tracking</div>
+    </div>
+    <div class="showcase-item side">
+      <img src="screenshot-weight.png" alt="Weight Tracker">
+      <div class="showcase-caption">⚖️ Weight Tracker</div>
     </div>
   </div>
 </section>
