@@ -9,143 +9,38 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Inter', sans-serif; background: #FAFAF5; color: #1a1a1a; }
-
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 40px;
-    background: white;
-    border-bottom: 1px solid #eee;
-  }
-
-  .nav-logo {
-    font-family: 'Sora', sans-serif;
-    font-size: 20px; font-weight: 800;
-    text-decoration: none; color: #1a1a1a;
-  }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: white; border-bottom: 1px solid #eee; }
+  .nav-logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; text-decoration: none; color: #1a1a1a; }
   .nav-logo span { color: #4CAF50; }
-
-  .nav-back {
-    font-size: 14px; color: #4CAF50;
-    text-decoration: none; font-weight: 600;
-  }
-
-  .container {
-    max-width: 760px;
-    margin: 60px auto;
-    padding: 0 24px 80px;
-  }
-
-  .privacy-header {
-    background: #2E7D32;
-    border-radius: 20px;
-    padding: 48px 40px;
-    margin-bottom: 40px;
-    color: white;
-  }
-
-  .privacy-header h1 {
-    font-family: 'Sora', sans-serif;
-    font-size: 36px; font-weight: 800;
-    margin-bottom: 8px;
-  }
-
-  .privacy-header p {
-    font-size: 14px;
-    opacity: 0.7;
-  }
-
-  .privacy-card {
-    background: white;
-    border-radius: 16px;
-    padding: 32px;
-    margin-bottom: 20px;
-    border: 1px solid #eee;
-  }
-
-  .privacy-card h2 {
-    font-family: 'Sora', sans-serif;
-    font-size: 18px; font-weight: 700;
-    color: #2E7D32;
-    margin-bottom: 16px;
-    display: flex; align-items: center; gap: 8px;
-  }
-
-  .privacy-card p {
-    font-size: 15px;
-    color: #444;
-    line-height: 1.75;
-    margin-bottom: 12px;
-  }
-
+  .nav-back { font-size: 14px; color: #4CAF50; text-decoration: none; font-weight: 600; }
+  .container { max-width: 760px; margin: 60px auto; padding: 0 24px 80px; }
+  .privacy-header { background: #2E7D32; border-radius: 20px; padding: 48px 40px; margin-bottom: 40px; color: white; }
+  .privacy-header h1 { font-family: 'Sora', sans-serif; font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+  .privacy-header p { font-size: 14px; opacity: 0.7; }
+  .privacy-card { background: white; border-radius: 16px; padding: 32px; margin-bottom: 20px; border: 1px solid #eee; }
+  .privacy-card h2 { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 700; color: #2E7D32; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .privacy-card p { font-size: 15px; color: #444; line-height: 1.75; margin-bottom: 12px; }
   .privacy-card p:last-child { margin-bottom: 0; }
-
-  .privacy-card ul {
-    list-style: none;
-    margin: 12px 0;
-  }
-
-  .privacy-card ul li {
-    font-size: 15px;
-    color: #444;
-    line-height: 1.7;
-    padding: 6px 0;
-    padding-left: 20px;
-    position: relative;
-  }
-
-  .privacy-card ul li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #4CAF50;
-    font-weight: 700;
-  }
-
-  .highlight-box {
-    background: #F1F8E9;
-    border-left: 4px solid #4CAF50;
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-size: 14px;
-    color: #2E7D32;
-    line-height: 1.6;
-  }
-
-  .contact-box {
-    background: #1a1a1a;
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-    color: white;
-    margin-top: 32px;
-  }
-
-  .contact-box h3 {
-    font-family: 'Sora', sans-serif;
-    font-size: 20px; font-weight: 700;
-    margin-bottom: 8px;
-  }
-
+  .privacy-card ul { list-style: none; margin: 12px 0; }
+  .privacy-card ul li { font-size: 15px; color: #444; line-height: 1.7; padding: 6px 0; padding-left: 20px; position: relative; }
+  .privacy-card ul li::before { content: '✓'; position: absolute; left: 0; color: #4CAF50; font-weight: 700; }
+  .highlight-box { background: #F1F8E9; border-left: 4px solid #4CAF50; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; font-size: 14px; color: #2E7D32; line-height: 1.6; }
+  .warning-box { background: #FFF8E1; border-left: 4px solid #FFD600; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; font-size: 14px; color: #795548; line-height: 1.6; }
+  .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .data-table th { background: #F1F8E9; color: #2E7D32; font-weight: 700; padding: 10px 14px; text-align: left; border: 1px solid #C8E6C9; }
+  .data-table td { padding: 10px 14px; border: 1px solid #eee; color: #444; vertical-align: top; line-height: 1.5; }
+  .data-table tr:nth-child(even) td { background: #fafafa; }
+  .sent-badge { display: inline-block; background: #FFEBEE; color: #C62828; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+  .notsent-badge { display: inline-block; background: #E8F5E9; color: #1B5E20; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+  .contact-box { background: #1a1a1a; border-radius: 16px; padding: 32px; text-align: center; color: white; margin-top: 32px; }
+  .contact-box h3 { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
   .contact-box p { font-size: 14px; opacity: 0.6; margin-bottom: 16px; }
-
-  .contact-box a {
-    display: inline-block;
-    background: #4CAF50;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-  }
-
-  @media (max-width: 600px) {
-    nav { padding: 14px 20px; }
-    .privacy-header { padding: 32px 24px; }
-    .privacy-card { padding: 24px 20px; }
-  }
+  .contact-box a { display: inline-block; background: #4CAF50; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; }
+  .anthropic-card { background: #E8F5E9; border: 2px solid #4CAF50; border-radius: 16px; padding: 24px; margin: 16px 0; }
+  .anthropic-card h3 { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 800; color: #2E7D32; margin-bottom: 12px; }
+  .anthropic-card p { font-size: 14px; color: #444; line-height: 1.7; margin-bottom: 8px; }
+  .anthropic-card a { color: #2E7D32; font-weight: 700; }
+  @media (max-width: 600px) { nav { padding: 14px 20px; } .privacy-header { padding: 32px 24px; } .privacy-card { padding: 24px 20px; } }
 </style>
 </head>
 <body>
@@ -159,14 +54,97 @@
 
   <div class="privacy-header">
     <h1>Privacy Policy</h1>
-    <p>Last updated: May 1, 2026 &nbsp;·&nbsp; Effective: May 1, 2026</p>
+    <p>Last updated: May 4, 2026 &nbsp;·&nbsp; Effective: May 4, 2026</p>
   </div>
 
   <div class="privacy-card">
     <h2>👋 Overview</h2>
-    <p>ShedAI ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the ShedAI mobile application.</p>
+    <p>ShedAI ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your information when you use the ShedAI mobile application.</p>
     <div class="highlight-box">
-      Your meal data and personal health information are stored locally on your device. We do not sell your data to third parties. Ever.
+      Your meal data and personal health information are stored locally on your device and securely in your account. We do not sell your data to third parties. Ever.
+    </div>
+  </div>
+
+  <div class="privacy-card">
+    <h2>🤖 Third-Party AI Service — Anthropic (Claude AI)</h2>
+    <p><strong>This is the most important section of this policy.</strong> ShedAI uses Anthropic's Claude AI to power its core features. When you log a meal or request a recommendation, certain data is transmitted to Anthropic's servers for processing.</p>
+
+    <div class="anthropic-card">
+      <h3>Who receives your data: Anthropic, PBC</h3>
+      <p><strong>Company:</strong> Anthropic, PBC — an AI safety company based in San Francisco, CA.</p>
+      <p><strong>Service used:</strong> Claude AI API (claude.anthropic.com)</p>
+      <p><strong>Purpose:</strong> To analyse your meal descriptions and calculate accurate nutritional information including calories, protein, carbohydrates, and fats.</p>
+      <p><strong>Anthropic's Privacy Policy:</strong> <a href="https://anthropic.com/privacy" target="_blank">anthropic.com/privacy</a></p>
+      <p><strong>Anthropic's Terms of Service:</strong> <a href="https://anthropic.com/terms" target="_blank">anthropic.com/terms</a></p>
+    </div>
+
+    <p><strong>Exact data sent to Anthropic for each meal log:</strong></p>
+    <table class="data-table">
+      <tr>
+        <th>Data Type</th>
+        <th>Example</th>
+        <th>Sent to Anthropic?</th>
+      </tr>
+      <tr>
+        <td>Meal description text</td>
+        <td>"2 eggs, dal, 2 rotis and chai"</td>
+        <td><span class="sent-badge">YES — sent</span></td>
+      </tr>
+      <tr>
+        <td>Remaining daily calorie target</td>
+        <td>"735 calories remaining"</td>
+        <td><span class="sent-badge">YES — sent</span></td>
+      </tr>
+      <tr>
+        <td>Remaining daily protein target</td>
+        <td>"87g protein remaining"</td>
+        <td><span class="sent-badge">YES — sent</span></td>
+      </tr>
+      <tr>
+        <td>Body metrics for goal calculation</td>
+        <td>Height, weight, goal weight, age (numbers only)</td>
+        <td><span class="sent-badge">YES — sent</span></td>
+      </tr>
+      <tr>
+        <td>Your name</td>
+        <td>—</td>
+        <td><span class="notsent-badge">NEVER sent</span></td>
+      </tr>
+      <tr>
+        <td>Your email address</td>
+        <td>—</td>
+        <td><span class="notsent-badge">NEVER sent</span></td>
+      </tr>
+      <tr>
+        <td>Your location</td>
+        <td>—</td>
+        <td><span class="notsent-badge">NEVER sent</span></td>
+      </tr>
+      <tr>
+        <td>Voice recordings</td>
+        <td>—</td>
+        <td><span class="notsent-badge">NEVER sent</span></td>
+      </tr>
+      <tr>
+        <td>Photos</td>
+        <td>—</td>
+        <td><span class="notsent-badge">NEVER sent</span></td>
+      </tr>
+      <tr>
+        <td>Device identifiers</td>
+        <td>—</td>
+        <td><span class="notsent-badge">NEVER sent</span></td>
+      </tr>
+    </table>
+
+    <div class="highlight-box">
+      All data is transmitted over HTTPS encryption. No personal identifiers (name, email, phone) are ever included in requests to Anthropic's API.
+    </div>
+
+    <p>Anthropic may process and retain API request data according to their own privacy policy and data retention practices. We encourage you to review Anthropic's privacy policy at <strong>anthropic.com/privacy</strong>.</p>
+
+    <div class="warning-box">
+      ⚠️ User Consent: Before using ShedAI's AI features, users are shown a clear in-app consent screen explaining exactly what data is sent to Anthropic and why. Users must explicitly agree before any data is transmitted to Anthropic's servers.
     </div>
   </div>
 
@@ -179,6 +157,7 @@
       <li>Activity level and dietary preferences</li>
       <li>Weight log entries</li>
       <li>Daily calorie and protein goals</li>
+      <li>Email address (for account creation)</li>
     </ul>
     <p><strong>Information collected automatically:</strong></p>
     <ul>
@@ -188,33 +167,20 @@
   </div>
 
   <div class="privacy-card">
-    <h2>🤖 Use of AI (Claude by Anthropic)</h2>
-    <p>ShedAI uses Anthropic's Claude AI to power its core features. When you log a meal or request a recommendation, the following data is sent to Anthropic's API:</p>
+    <h2>💾 Data Storage</h2>
+    <p>Your personal data is stored in two places:</p>
     <ul>
-      <li>Your meal description text (e.g. "2 eggs and toast")</li>
-      <li>Your remaining daily calorie and protein targets (numbers only)</li>
-      <li>Body metrics for personalised goal calculation (numbers only)</li>
+      <li><strong>Locally on your device</strong> — using AsyncStorage for fast, offline access</li>
+      <li><strong>Securely in the cloud</strong> — using Supabase (supabase.com) to back up your data so it is not lost if you delete and reinstall the app</li>
     </ul>
     <div class="highlight-box">
-      No names, email addresses, or personal identifiers are ever sent to Anthropic's API. All data is transmitted over HTTPS encryption. Anthropic's privacy policy is available at anthropic.com/privacy.
+      Your cloud data is protected by Row Level Security — only you can access your own data. Supabase's privacy policy is available at supabase.com/privacy.
     </div>
-    <p>Anthropic may process this data according to their own privacy policy. We encourage you to review it at <strong>anthropic.com/privacy</strong>.</p>
-  </div>
-
-  <div class="privacy-card">
-    <h2>💾 Data Storage</h2>
-    <p>All your personal data — meal logs, weight entries, and settings — is stored locally on your device using AsyncStorage. This means:</p>
-    <ul>
-      <li>Your data does not leave your device (except for AI processing described above)</li>
-      <li>We do not have access to your meal logs or weight data</li>
-      <li>Deleting the app will delete your local data</li>
-      <li>Data is not backed up to our servers</li>
-    </ul>
   </div>
 
   <div class="privacy-card">
     <h2>🎤 Microphone Access</h2>
-    <p>ShedAI requests microphone access to enable voice meal logging. The microphone is only activated when you explicitly tap the Log Meal button. Audio is processed locally by your device's speech recognition — we do not record or store your voice.</p>
+    <p>ShedAI requests microphone access to enable voice meal logging. The microphone is only activated when you explicitly tap the Log Meal button. Your voice is converted to text locally on your device using Apple's Speech Recognition framework — the audio recording itself is never stored or transmitted anywhere. Only the resulting text description is sent to Anthropic for nutrition analysis.</p>
   </div>
 
   <div class="privacy-card">
@@ -250,7 +216,7 @@
     <p>Depending on your location, you may have rights regarding your personal data including:</p>
     <ul>
       <li>Right to access your data</li>
-      <li>Right to delete your data (you can delete all data by uninstalling the app)</li>
+      <li>Right to delete your data (contact us at privacy@getshedai.com)</li>
       <li>Right to opt out of data processing</li>
       <li>Right to data portability</li>
     </ul>
