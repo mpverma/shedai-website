@@ -170,6 +170,16 @@
   .footer-links a:hover { color: white; }
   .footer-copy { color: rgba(255,255,255,0.3); font-size: 12px; width: 100%; text-align: center; margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; }
 
+  /* VIDEO SECTIONS */
+  .video-section { padding: 80px 40px; text-align: center; background: var(--white); }
+  .video-section.alt { background: var(--cream); }
+  .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,0.18); max-width: 900px; margin: 0 auto; }
+  .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 20px; }
+  .video-label { display: inline-block; background: var(--green-pale); color: var(--green); border: 1px solid var(--green-mid); border-radius: 24px; padding: 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; font-family: 'Sora', sans-serif; }
+  .video-section h2 { font-family: 'Sora', sans-serif; font-size: clamp(24px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+  .video-section p { font-size: 16px; color: var(--grey); max-width: 540px; margin: 0 auto 40px; line-height: 1.7; }
+  @media (max-width: 768px) { .video-section { padding: 60px 20px; } }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
@@ -239,6 +249,16 @@
       <img src="screenshot-weight.png" alt="Weight Tracker">
       <div class="screenshot-label">⚖️ Weight Tracker</div>
     </div>
+  </div>
+</section>
+
+<!-- PROMO VIDEO -->
+<section class="video-section">
+  <div class="video-label">▶ Watch the Video</div>
+  <h2>See ShedAI in action</h2>
+  <p>Watch how effortlessly ShedAI tracks your nutrition and helps you reach your weight loss goals.</p>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/rdft-n7QrEQ" title="ShedAI — AI-Powered Nutrition Tracking & Weight Loss App" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
   </div>
 </section>
 
@@ -325,6 +345,16 @@
       <img src="screenshot-weight.png" alt="Weight Tracker">
       <div class="showcase-caption">⚖️ Weight Tracker</div>
     </div>
+  </div>
+</section>
+
+<!-- WALKTHROUGH VIDEO -->
+<section class="video-section alt">
+  <div class="video-label">▶ App Walkthrough</div>
+  <h2>Everything you need, nothing you don't</h2>
+  <p>A complete walkthrough of logging meals, tracking nutrition, and monitoring your weight loss progress.</p>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/YfCD01iRzZo" title="ShedAI App Walkthrough — How to Log Meals & Track Nutrition" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
   </div>
 </section>
 
