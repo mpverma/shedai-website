@@ -171,6 +171,17 @@
   .video-label { display: inline-block; background: var(--green-pale); color: var(--green); border: 1px solid var(--green-mid); border-radius: 24px; padding: 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; font-family: 'Sora', sans-serif; }
   .video-section h2 { font-family: 'Sora', sans-serif; font-size: clamp(24px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
   .video-section p { font-size: 16px; color: var(--grey); max-width: 540px; margin: 0 auto 40px; line-height: 1.7; }
+
+  /* APP SCREENSHOTS */
+  .screenshots-row { display: flex; gap: 20px; justify-content: center; align-items: flex-end; flex-wrap: wrap; margin-top: 48px; }
+  .screenshot-frame { display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
+  .screenshot-frame:hover { transform: translateY(-8px); }
+  .screenshot-frame img { border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05); display: block; }
+  .screenshot-frame.large img { height: 480px; width: auto; }
+  .screenshot-frame.small img { height: 400px; width: auto; }
+  .screenshot-label { margin-top: 14px; font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; }
+  @media (max-width: 768px) { .screenshot-frame.large img { height: 320px; } .screenshot-frame.small img { height: 270px; } .screenshots-row { gap: 12px; } }
+
   @media (max-width: 768px) { .video-section { padding: 60px 20px; } }
 
 
@@ -249,6 +260,23 @@
         <span class="icon">📷</span>
         <span class="label">Photo</span>
       </div>
+    </div>
+  </div>
+
+
+  <!-- App Screenshots -->
+  <div class="screenshots-row">
+    <div class="screenshot-frame small">
+      <img src="screenshot-charts.png" alt="Nutrition Trends Charts">
+      <div class="screenshot-label">📊 Nutrition Trends</div>
+    </div>
+    <div class="screenshot-frame large">
+      <img src="screenshot-home.png" alt="Home Screen - Daily Tracking">
+      <div class="screenshot-label">🏠 Daily Tracking</div>
+    </div>
+    <div class="screenshot-frame small">
+      <img src="screenshot-weight.png" alt="Weight Tracker">
+      <div class="screenshot-label">⚖️ Weight Tracker</div>
     </div>
   </div>
 
@@ -406,7 +434,9 @@
     <p>We'd love to hear from you. We'll get back to you within 24 hours.</p>
     
     <div id="contactForm">
-      <form onsubmit="handleContactSubmit(event)">
+      <form name="contact" netlify netlify-honeypot="bot-field" onsubmit="handleContactSubmit(event)">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><input name="bot-field"></p>
         
         <div class="form-group">
           <label>Your Name</label>
@@ -470,10 +500,10 @@ async function handleContactSubmit(e) {
   const data = new FormData(form);
 
   try {
-    await fetch('https://formspree.io/f/mwvjnlew', {
+    await fetch('/', {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(Object.fromEntries(data))
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
     });
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
