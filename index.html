@@ -149,6 +149,161 @@
   .cta-section .btn-primary { background: var(--green-light); font-size: 16px; padding: 18px 36px; }
   .cta-section .btn-primary:hover { background: var(--green); }
 
+  /* WAITLIST */
+  .waitlist-section {
+    background: var(--dark);
+    padding: 100px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .waitlist-section::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(76,175,80,0.12) 0%, transparent 70%);
+    top: -100px; left: 50%; transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .waitlist-badge {
+    display: inline-block;
+    background: rgba(76,175,80,0.15);
+    border: 1px solid rgba(76,175,80,0.3);
+    color: var(--green-light);
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .waitlist-section h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .waitlist-section h2 span { color: var(--green-light); }
+  .waitlist-section > p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 48px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+  .waitlist-form-wrap {
+    max-width: 500px;
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .waitlist-platform-choice {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .platform-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.6);
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .platform-btn.active, .platform-btn:hover {
+    border-color: var(--green-light);
+    background: rgba(76,175,80,0.12);
+    color: white;
+  }
+  .waitlist-input-row {
+    display: flex;
+    gap: 0;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  }
+  .waitlist-input-row input[type="email"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 18px 20px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    background: transparent;
+  }
+  .waitlist-input-row input[type="email"]::placeholder { color: #aaa; }
+  .waitlist-submit {
+    background: var(--green-light);
+    color: white;
+    border: none;
+    padding: 18px 28px;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .waitlist-submit:hover { background: var(--green); }
+  .waitlist-submit:disabled { background: #aaa; cursor: not-allowed; }
+  .waitlist-privacy-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 14px;
+  }
+  .waitlist-success {
+    display: none;
+    background: rgba(76,175,80,0.12);
+    border: 1px solid rgba(76,175,80,0.3);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+  }
+  .waitlist-success .success-icon { font-size: 40px; margin-bottom: 12px; }
+  .waitlist-success h4 { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: white; margin-bottom: 8px; }
+  .waitlist-success p { font-size: 14px; color: rgba(255,255,255,0.6); }
+  .waitlist-social-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .proof-avatars { display: flex; }
+  .proof-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+    background: var(--green-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    margin-left: -8px;
+    color: white;
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+  }
+  .proof-avatar:first-child { margin-left: 0; }
+  .proof-text { font-size: 13px; color: rgba(255,255,255,0.5); }
+  .proof-text strong { color: rgba(255,255,255,0.85); }
+
   /* DISCLAIMER */
   .disclaimer-banner { background: #FFF8E1; border-top: 2px solid #FFD600; padding: 12px 40px; text-align: center; font-size: 12px; color: #795548; line-height: 1.5; }
 
@@ -391,6 +546,50 @@
   </div>
 </section>
 
+<!-- WAITLIST / EARLY ACCESS -->
+<section class="waitlist-section" id="waitlist">
+  <div class="waitlist-badge">🚀 Early Access</div>
+  <h2>Be first to <span>shed the pounds</span>.</h2>
+  <p>Join the waitlist and get notified the moment ShedAI launches on your platform. No spam, ever.</p>
+
+  <div class="waitlist-form-wrap">
+    <div id="waitlistForm">
+      <div class="waitlist-platform-choice">
+        <button type="button" class="platform-btn active" onclick="selectPlatform(this, 'iOS')" id="btn-ios">🍎 iOS</button>
+        <button type="button" class="platform-btn" onclick="selectPlatform(this, 'Android')" id="btn-android">🤖 Android</button>
+        <button type="button" class="platform-btn" onclick="selectPlatform(this, 'Both')" id="btn-both">📱 Both</button>
+      </div>
+      <form name="waitlist" netlify netlify-honeypot="bot-field" onsubmit="handleWaitlistSubmit(event)">
+        <input type="hidden" name="form-name" value="waitlist">
+        <input type="hidden" name="platform" id="platformInput" value="iOS">
+        <p style="display:none"><input name="bot-field"></p>
+        <div class="waitlist-input-row">
+          <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+          <button type="submit" class="waitlist-submit" id="waitlistSubmitBtn">Notify Me →</button>
+        </div>
+      </form>
+      <p class="waitlist-privacy-note">🔒 No spam. Unsubscribe anytime. We respect your privacy.</p>
+    </div>
+
+    <div class="waitlist-success" id="waitlistSuccess">
+      <div class="success-icon">🎉</div>
+      <h4>You're on the list!</h4>
+      <p>We'll email you the moment ShedAI is ready on your platform. Get ready to shed those pounds.</p>
+    </div>
+  </div>
+
+  <div class="waitlist-social-proof">
+    <div class="proof-avatars">
+      <div class="proof-avatar">M</div>
+      <div class="proof-avatar" style="background:#388E3C;">R</div>
+      <div class="proof-avatar" style="background:#1B5E20;">P</div>
+      <div class="proof-avatar" style="background:#43A047;">S</div>
+      <div class="proof-avatar" style="background:#66BB6A;">A</div>
+    </div>
+    <p class="proof-text"><strong>Early testers</strong> are already using ShedAI</p>
+  </div>
+</section>
+
 <!-- DISCLAIMER -->
 <div class="disclaimer-banner">
   ⚕️ ShedAI provides estimated nutritional information based on USDA Dietary Guidelines and the Mifflin-St Jeor BMR equation. This app is not intended as medical advice. Consult a healthcare provider before making significant dietary changes. <a href="/privacy" style="color:#795548;font-weight:600;">Privacy Policy</a>
@@ -419,6 +618,7 @@
   <div class="footer-links">
     <a href="/#features">Features</a>
     <a href="/#how">How it works</a>
+    <a href="/#waitlist">Early Access</a>
     <a href="/privacy">Privacy Policy</a>
     <a href="#" onclick="openContactModal(); return false;">Contact</a>
   </div>
@@ -473,6 +673,36 @@
 </div>
 
 <script>
+function selectPlatform(btn, platform) {
+  document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('platformInput').value = platform;
+}
+
+async function handleWaitlistSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('waitlistSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Joining...';
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  try {
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    });
+    document.getElementById('waitlistForm').style.display = 'none';
+    document.getElementById('waitlistSuccess').style.display = 'block';
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Notify Me →';
+    alert('Something went wrong. Please email us at hello@getshedai.com');
+  }
+}
+
 function openContactModal() {
   document.getElementById('contactModal').classList.add('active');
   document.body.style.overflow = 'hidden';
