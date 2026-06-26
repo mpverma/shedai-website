@@ -179,7 +179,7 @@
     <h1>Email <span>verified!</span></h1>
     <p>Your email address has been confirmed. Head back to the ShedAI app to sign in and start your nutrition journey.</p>
 
-    <a href="shedai://" class="btn-primary" id="openAppBtn">
+    <a href="shedai://auth/callback" class="btn-primary" id="openAppBtn">
       📱 Open ShedAI App
     </a>
 
@@ -204,5 +204,14 @@
   <a href="/">getshedai.com</a>
 </footer>
 
+
+<script>
+  // Auto-attempt deep link after short delay so user sees success message
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      window.location.href = 'shedai://auth/callback';
+    }, 2000);
+  });
+</script>
 </body>
 </html>
