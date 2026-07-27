@@ -60,7 +60,7 @@
   .hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(40px, 7vw, 80px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 24px; max-width: 800px; }
   .hero h1 .highlight { color: var(--green-light); }
   .hero p { font-size: clamp(16px, 2.5vw, 20px); color: var(--grey); max-width: 540px; line-height: 1.7; margin-bottom: 40px; }
-  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 40px; }
   .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--dark); color: white; padding: 16px 28px; border-radius: 14px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
   .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--dark); padding: 16px 28px; border-radius: 14px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 15px; border: 1.5px solid #e0e0e0; transition: border-color 0.2s; }
@@ -147,9 +147,26 @@
   .cta-section { padding: 100px 40px; text-align: center; background: var(--dark); }
   .cta-section h2 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 5vw, 52px); font-weight: 800; color: white; letter-spacing: -1px; margin-bottom: 16px; }
   .cta-section p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
-  .cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; }
   .cta-section .btn-primary { background: var(--green-light); font-size: 16px; padding: 18px 36px; }
   .cta-section .btn-primary:hover { background: var(--green); }
+
+  /* APP STORE / GOOGLE PLAY BADGES */
+  /* No custom background, border, or padding on these per Apple's badge guidelines —
+     the artwork is a complete, self-contained button on its own. */
+  .app-store-badge-link { display: inline-flex; line-height: 0; transition: transform 0.2s, opacity 0.2s; }
+  .app-store-badge-link:hover { transform: translateY(-2px); opacity: 0.9; }
+  .app-store-badge-img { height: 54px; width: auto; display: block; }
+
+  .play-badge-wrap { position: relative; display: inline-flex; line-height: 0; opacity: 0.55; cursor: default; }
+  .play-badge-img { height: 54px; width: auto; display: block; filter: grayscale(40%); }
+  .play-badge-tag {
+    position: absolute; top: -10px; right: -10px;
+    background: var(--green-light); color: white;
+    font-family: 'Sora', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.03em; padding: 3px 8px; border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25); white-space: nowrap;
+  }
 
   /* WAITLIST */
   .waitlist-section {
@@ -413,8 +430,8 @@ src="https://www.facebook.com/tr?id=1645305933627008&ev=PageView&noscript=1"
   <p>Log meals by voice, photo, or text. ShedAI instantly calculates your calories, protein, and macros — no food database searching required.</p>
 
   <div class="hero-buttons">
-    <a href="https://apps.apple.com/app/shedai/id6762681528" class="btn-primary" target="_blank">
-      🍎 Download on the App Store
+    <a href="https://apps.apple.com/app/shedai/id6762681528" class="app-store-badge-link" target="_blank" aria-label="Download ShedAI on the App Store">
+      <img src="/app-store-badge-black.svg" alt="Download on the App Store" class="app-store-badge-img">
     </a>
     <a href="#features" class="btn-secondary">See features →</a>
   </div>
@@ -620,12 +637,13 @@ src="https://www.facebook.com/tr?id=1645305933627008&ev=PageView&noscript=1"
   <h2>Your transformation starts here.</h2>
   <p>The healthiest version of you is one download away.</p>
   <div class="cta-buttons">
-    <a href="https://apps.apple.com/app/shedai/id6762681528" class="btn-primary" target="_blank">
-      🍎 Download on the App Store
+    <a href="https://apps.apple.com/app/shedai/id6762681528" class="app-store-badge-link" target="_blank" aria-label="Download ShedAI on the App Store">
+      <img src="/app-store-badge-white.svg" alt="Download on the App Store" class="app-store-badge-img">
     </a>
-    <a href="#" class="btn-primary" style="background:#555;cursor:default;" title="Coming soon">
-      🤖 Google Play — Coming Soon
-    </a>
+    <span class="play-badge-wrap" title="Coming soon">
+      <img src="/google-play-badge.png" alt="Get it on Google Play — coming soon" class="play-badge-img">
+      <span class="play-badge-tag">Coming Soon</span>
+    </span>
   </div>
 </section>
 
