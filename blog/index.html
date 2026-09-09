@@ -59,7 +59,8 @@
   .post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
   .post-card { display: block; text-decoration: none; color: inherit; background: var(--cream); border-radius: 20px; overflow: hidden; border: 1px solid #eee; transition: transform 0.2s, box-shadow 0.2s; }
   .post-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-  .post-card-image { width: 100%; height: 180px; background: linear-gradient(135deg, var(--green-mid) 0%, var(--green-pale) 100%); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+  .post-card-image { width: 100%; height: 200px; background: linear-gradient(135deg, var(--green-mid) 0%, var(--green-pale) 100%); overflow: hidden; }
+  .post-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .post-card-body { padding: 24px; }
   .post-card-date { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-light); margin-bottom: 10px; }
   .post-card-title { font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 700; margin-bottom: 10px; line-height: 1.35; }
@@ -101,8 +102,8 @@
 <!-- BLOG HEADER -->
 <header class="blog-header">
   <div class="section-label">ShedAI Blog</div>
-  <h1>Eat smarter, not harder.</h1>
-  <p>Practical nutrition tracking advice, product updates, and honest takes on what actually helps you reach your goals.</p>
+  <h1>Eat well. Lose weight. Keep it off.</h1>
+  <p>Practical nutrition tracking advice and honest, science-backed guidance for lasting weight loss.</p>
 </header>
 
 <!-- POST GRID -->
@@ -110,7 +111,9 @@
   <div class="post-grid">
 
     <a href="/blog/why-nutrition-tracking-actually-works.html" class="post-card">
-      <div class="post-card-image">🥗</div>
+      <div class="post-card-image">
+        <img src="/blog/images/nutrition-tracking-cover.jpg" alt="A plate of healthy food being logged for nutrition tracking" loading="lazy">
+      </div>
       <div class="post-card-body">
         <div class="post-card-date">September 9, 2026</div>
         <div class="post-card-title">Why Nutrition Tracking Actually Works (When It's Not a Chore)</div>
