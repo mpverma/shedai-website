@@ -44,8 +44,8 @@
   .nav-brand .dark { color: var(--dark); }
   .nav-brand .green { color: var(--green-light); }
   .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a { text-decoration: none; color: var(--dark); font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; }
-  .nav-links a.current { color: var(--green-light); }
+  .nav-links a.nav-page-link { text-decoration: none; color: var(--dark); font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; }
+  .nav-links a.nav-page-link.current { color: var(--green-light); }
   .nav-cta { background: var(--green-light); color: white; padding: 10px 22px; border-radius: 24px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; transition: background 0.2s; }
   .nav-cta:hover { background: var(--green); }
 
@@ -103,7 +103,7 @@
     <div class="nav-brand"><span class="dark">Shed</span><span class="green">AI</span></div>
   </a>
   <div class="nav-links">
-    <a href="/blog" class="current">Blog</a>
+    <a href="/blog" class="nav-page-link current">Blog</a>
     <a href="https://apps.apple.com/app/shedai/id6762681528" class="nav-cta" target="_blank">🍎 Get ShedAI</a>
   </div>
 </nav>
