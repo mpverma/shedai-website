@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Nutrition Tracking Actually Works (When It's Not a Chore) — ShedAI Blog</title>
+<meta name="description" content="Nutrition tracking is one of the most effective tools for reaching a health goal — but only if it's easy enough to stick with. Here's what the research says, why most apps fail Indian and South Asian eaters, and how ShedAI closes that gap.">
+<link rel="canonical" href="https://getshedai.com/blog/why-nutrition-tracking-actually-works.html">
+<meta property="og:title" content="Why Nutrition Tracking Actually Works (When It's Not a Chore)">
+<meta property="og:description" content="Nutrition tracking is one of the most effective tools for reaching a health goal — but only if it's easy enough to stick with.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://getshedai.com/blog/why-nutrition-tracking-actually-works.html">
+<link rel="icon" type="image/png" href="/shedaiapplogo.png">
+<link rel="apple-touch-icon" href="/shedaiapplogo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #2E7D32;
+    --green-light: #4CAF50;
+    --green-pale: #F1F8E9;
+    --green-mid: #C8E6C9;
+    --dark: #1a1a1a;
+    --grey: #6B7280;
+    --white: #FFFFFF;
+    --cream: #FAFAF5;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 42px; width: auto; border-radius: 8px; }
+  .nav-brand { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; }
+  .nav-brand .dark { color: var(--dark); }
+  .nav-brand .green { color: var(--green-light); }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { text-decoration: none; color: var(--dark); font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; }
+  .nav-links a.current { color: var(--green-light); }
+  .nav-cta { background: var(--green-light); color: white; padding: 10px 22px; border-radius: 24px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--green); }
+
+  /* ARTICLE HEADER */
+  .article-header {
+    padding: 160px 24px 60px;
+    text-align: center;
+    background: linear-gradient(160deg, var(--cream) 0%, var(--green-pale) 60%, #E8F5E9 100%);
+  }
+  .article-header .back-link { display: inline-block; font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; color: var(--green-light); text-decoration: none; margin-bottom: 24px; }
+  .article-header .back-link:hover { color: var(--green); }
+  .article-meta { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); margin-bottom: 16px; }
+  .article-header h1 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 5vw, 48px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.2; max-width: 780px; margin: 0 auto; }
+
+  /* ARTICLE BODY */
+  .article-body { max-width: 680px; margin: 0 auto; padding: 60px 24px 100px; font-size: 17px; line-height: 1.8; color: #333; }
+  .article-body h2 { font-family: 'Sora', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -0.5px; color: var(--dark); margin: 48px 0 18px; }
+  .article-body p { margin-bottom: 22px; }
+  .article-body ul { margin: 0 0 22px 22px; }
+  .article-body li { margin-bottom: 10px; }
+  .article-body strong { color: var(--dark); }
+  .article-body a { color: var(--green-light); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid var(--green-mid); }
+  .article-body a:hover { color: var(--green); border-color: var(--green); }
+
+  .article-cta { background: var(--green-pale); border: 1.5px solid var(--green-mid); border-radius: 20px; padding: 32px; text-align: center; margin-top: 48px; }
+  .article-cta p { margin-bottom: 20px; font-size: 16px; color: var(--dark); font-weight: 600; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--dark); color: white; padding: 16px 28px; border-radius: 14px; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: none; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+  /* FOOTER */
+  footer { background: #111; padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-brand { display: flex; align-items: center; gap: 10px; }
+  .footer-brand img { height: 36px; width: auto; border-radius: 6px; }
+  .footer-brand-name { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 800; color: white; }
+  .footer-brand-name span { color: var(--green-light); }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: white; }
+  .footer-copy { color: rgba(255,255,255,0.4); font-size: 13px; width: 100%; text-align: center; margin-top: 8px; }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-links { gap: 16px; }
+    .article-header { padding: 130px 20px 50px; }
+    .article-body { padding: 44px 20px 80px; font-size: 16px; }
+    footer { flex-direction: column; align-items: flex-start; padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/shedaiapplogo.png" alt="ShedAI Logo">
+    <div class="nav-brand"><span class="dark">Shed</span><span class="green">AI</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="/blog" class="current">Blog</a>
+    <a href="https://apps.apple.com/app/shedai/id6762681528" class="nav-cta" target="_blank">🍎 Get ShedAI</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <a href="/blog" class="back-link">← Back to Blog</a>
+  <div class="article-meta">September 9, 2026 · Nutrition</div>
+  <h1>Why Nutrition Tracking Actually Works (When It's Not a Chore)</h1>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <p>If you've ever tried to lose weight, build muscle, or just eat more intentionally, you've probably heard the advice: "track what you eat." It's repeated so often it starts to sound like a cliché — but the reason it keeps coming up is that it's one of the few habits with real evidence behind it.</p>
+
+  <h2>The case for tracking</h2>
+  <p>Self-monitoring works because it closes a gap most people don't realize exists: the gap between what you <em>think</em> you eat and what you <em>actually</em> eat. Studies on weight management consistently find that people underestimate their calorie intake, sometimes significantly, and that the act of writing food down — regardless of the specific method — improves awareness and outcomes. Tracking turns eating from something that happens on autopilot into something you can actually see and adjust.</p>
+  <p>It's not about obsessing over every gram. It's about having enough visibility to notice patterns: that your weekdays are fine but weekends undo them, that you're getting plenty of carbs but not much protein, or that the "healthy" snack you have every afternoon is quietly your biggest calorie source.</p>
+
+  <h2>Why most people quit anyway</h2>
+  <p>If tracking is so useful, why does almost everyone stop within a few weeks?</p>
+  <p>Because most tracking tools were built for a narrow slice of food culture. Logging a chicken breast and a cup of rice takes ten seconds. Logging a home-cooked meal of dal, sabzi, roti, and rice — the way hundreds of millions of people actually eat every day — usually means guessing, approximating with a "closest match" that isn't close at all, or giving up on precision and just not bothering. When the tool doesn't understand your food, tracking stops being a five-second habit and turns into a research project. That friction is where most people drop off.</p>
+
+  <h2>Where AI actually changes the equation</h2>
+  <p>This is the part where "AI-powered" isn't just a buzzword — it solves a real, specific problem. A model that can recognize a plate of food from a photo and reason about what's actually on it (not just match it to the nearest generic entry) removes almost all of the friction that makes tracking exhausting.</p>
+  <p>That's the problem ShedAI was built around. Instead of a database that treats "dal" as an edge case, ShedAI is built to recognize Indian dishes — dal, paneer, roti, thepla, and the rest of the meals that don't show up accurately in most Western-built tracking apps — and log them with a photo instead of a search bar and a lot of patience. The goal isn't just "more foods in the database." It's making the five-second habit actually take five seconds, for the way people really eat.</p>
+
+  <h2>A few things that make tracking stick</h2>
+  <p>Whether you use ShedAI or anything else, a few habits make the difference between tracking for three days and tracking for three months:</p>
+  <ul>
+    <li><strong>Log right after you eat, not at the end of the day.</strong> Memory is unreliable, and batching everything at night is exactly the kind of friction that kills the habit.</li>
+    <li><strong>Don't aim for perfect precision.</strong> A reasonable estimate you actually log beats a perfect number you never write down.</li>
+    <li><strong>Look for patterns weekly, not daily.</strong> Day-to-day numbers bounce around; the trend over a week or two is what actually tells you something.</li>
+    <li><strong>Get feedback, not just data.</strong> Numbers on their own don't change behavior — knowing what to do differently does. This is part of why we built an in-app AI coach into ShedAI, so you're not left staring at a log wondering what it means.</li>
+  </ul>
+
+  <h2>The bottom line</h2>
+  <p>Nutrition tracking works because it replaces guesswork with visibility. It stops working the moment it becomes harder than it's worth. If you've tried tracking before and quit because logging your actual meals felt like more effort than it should, that's not a willpower problem — it's a tooling problem. It's exactly what we set out to fix with ShedAI.</p>
+
+  <div class="article-cta">
+    <p>Want to try it? Log your next meal with a photo instead of a search bar.</p>
+    <a href="https://apps.apple.com/app/shedai/id6762681528" class="btn-primary" target="_blank">🍎 Get ShedAI →</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="/shedaiapplogo.png" alt="ShedAI Logo">
+    <div class="footer-brand-name">Shed<span>AI</span></div>
+  </div>
+  <div class="footer-links">
+    <a href="/#features">Features</a>
+    <a href="/#how">How it works</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Use</a>
+  </div>
+  <div class="footer-copy">© 2026 Vertexa Labs LLC. All rights reserved. Made with ❤️ for people who want to live healthier.</div>
+</footer>
+
+</body>
+</html>
