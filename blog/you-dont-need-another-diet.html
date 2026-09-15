@@ -60,6 +60,10 @@
   .article-meta { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); margin-bottom: 16px; }
   .article-header h1 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 5vw, 48px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.2; max-width: 780px; margin: 0 auto; }
 
+  /* HERO IMAGE */
+  .hero-image-wrap { max-width: 900px; margin: -40px auto 0; padding: 0 24px; position: relative; z-index: 2; }
+  .hero-image-wrap img { width: 100%; display: block; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,0.15); }
+
   /* ARTICLE BODY */
   .article-body { max-width: 680px; margin: 0 auto; padding: 60px 24px 100px; font-size: 17px; line-height: 1.8; color: #333; }
   .article-body h2 { font-family: 'Sora', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -0.5px; color: var(--dark); margin: 48px 0 18px; }
@@ -117,8 +121,13 @@
   <h1>You Don't Need Another Diet. You Need to Understand What You Eat.</h1>
 </header>
 
+<!-- HERO IMAGE -->
+<div class="hero-image-wrap">
+  <img src="/blog/images/you-dont-need-another-diet-cover.jpg" alt="A woman logging her meal in the ShedAI app, showing calorie and protein tracking alongside the ShedAI tagline: Eat better. Live normally. Shed smarter." loading="eager">
+</div>
+
 <!-- ARTICLE BODY -->
-<article class="article-body">
+<article class="article-body" style="padding-top: 80px;">
 
   <p>If you've ever started a diet on Monday, felt incredibly motivated for a few days, and then found yourself eating pizza, pasta, tacos, dessert, or your favorite takeout by the weekend, you're not alone.</p>
   <p>The problem may not be that you lack discipline. It may be that most diets ask you to completely change the way you live — and that's hard to sustain.</p>
